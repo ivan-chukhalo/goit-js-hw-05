@@ -1,38 +1,35 @@
-'use strict';
+"use strict";
 console.log("________________task 5.4________________");
 
-class StringBuilder{
-    constructor(inputString){
-        this._value = inputString;
-    }
+class StringBuilder {
+  constructor(inputString) {
+    this._value = inputString;
+  }
 
-    get value(){
-        return this._value;
-    }
+  get value() {
+    return this._value;
+  }
 
-    append(str){
-        this._value = this._value.concat(str);
-    }
+  append(str) {
+    this._value = this._value.concat(str);
+  }
 
-    prepend(str){
-        this._value = str.concat(this._value);
-    }
+  prepend(str) {
+    this._value = str.concat(this._value);
+  }
 
-    pad(str){
-        this._value = str.concat(this._value).concat(str);
-    }
+  pad(str) {
+    this._value = str.concat(this._value).concat(str);
+  }
 }
 
+const builder = new StringBuilder(".");
 
-
-
-const builder = new StringBuilder('.');
-
-builder.append('^');
+builder.append("^");
 console.log(builder.value); // '.^'
 
-builder.prepend('^');
+builder.prepend("^");
 console.log(builder.value); // '^.^'
 
-builder.pad('=');
+builder.pad("=");
 console.log(builder.value); // '=^.^='
