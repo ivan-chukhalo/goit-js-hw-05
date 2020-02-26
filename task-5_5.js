@@ -2,27 +2,28 @@
 console.log("________________task 5.5________________");
 
 class Car {
+  static getSpecs(car) {
+    const ArrayOfStats = [];
+    for (const stat of Object.keys(car)) {
+      ArrayOfStats.push(`${stat}: ${car[stat]}`);
+    }
+    console.log(...ArrayOfStats);
+  }
 
   constructor(objOfSettings) {
-    this._speed = 0;
-    this._price = objOfSettings.price;
     this._maxSpeed = objOfSettings.maxSpeed;
+    this._speed = 0;
     this._isOn = false;
     this._distance = 0;
+    this._price = objOfSettings.price;
   }
 
-  static getSpecs(car) {
-    console.log(car); //написати цикл що проходе по всіх ключах і значеннях об'єкту-машини. Виводить все в консоль
-  }
-  
   get price() {
     return this._price;
   }
 
-  set price(changePricebyAmount) {
-    changePricebyAmount < 0
-      ? (this._price += changePricebyAmount)
-      : (this._price -= changePricebyAmount);
+  set price(newPrice) {
+    this._price = newPrice;
   }
 
   turnOn() {
@@ -56,9 +57,6 @@ class Car {
     }
   }
 }
-
-
-
 
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
 
